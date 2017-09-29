@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour {
 		
 	
 	void OnCollisionEnter2D (Collision2D col) {
-		if (col.gameObject.name == "LeftPaddle") {
+		if (col.gameObject.tag == "LeftPaddle") {
 			float y = hitFactor (transform.position,
 				          col.transform.position,
 				          col.collider.bounds.size.y);
@@ -24,7 +24,7 @@ public class Ball : MonoBehaviour {
 			Vector2 dir = new Vector2 (1, y).normalized;
 			GetComponent<Rigidbody2D> ().velocity = dir * speed;
 		}
-		if (col.gameObject.name == "RightPaddle") {
+		if (col.gameObject.tag == "RightPaddle") {
 			float y = hitFactor (transform.position,
 				          col.transform.position,
 				          col.collider.bounds.size.y);
